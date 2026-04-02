@@ -8,10 +8,15 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
-  {%- if page.load_portfolio_fonts -%}
+  {%- if page.load_portfolio_fonts or page.layout == 'post' -%}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  {%- endif -%}
+  {%- if page.load_portfolio_fonts -%}
   <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+  {%- endif -%}
+  {%- if page.layout == 'post' -%}
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {%- endif -%}
 </head>

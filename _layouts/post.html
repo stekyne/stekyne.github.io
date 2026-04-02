@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+{%- assign words = content | number_of_words -%} {%- assign reading_time = words
+| divided_by: 200 -%} {%- if reading_time == 0 -%}{%- assign reading_time = 1
+-%}{%- endif -%}
+
+<div class="blog-post-page">
+  <nav class="bp-nav-back">
+    <a href="{{ '/#blog' | relative_url }}" class="bp-nav-back__link">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M19 12H5" />
+        <path d="m12 19-7-7 7-7" />
+      </svg>
+      Back
+    </a>
+  </nav>
+
+  <article
+    class="bp-article h-entry"
+    itemscope
+    itemtype="http://schema.org/BlogPosting"
+  >
+    <header class="bp-header bp-animate">
+      {%- if page.categories.size > 0 -%}
+      <div class="bp-categories">
+        {%- for cat in page.categories -%}
+        <span class="bp-category">{{ cat }}</span>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
+      <h1 class="bp-title p-name" itemprop="name headline">
+        {{ page.title | escape }}
+      </h1>
+
+      <div class="bp-meta">
+        <time
+          class="bp-meta__date dt-published"
+          datetime="{{ page.date | date_to_xmlschema }}"
+          itemprop="datePublished"
+        >
+          {{ page.date | date: "%B %-d, %Y" }}
+        </time>
+        <span class="bp-meta__sep">&middot;</span>
+        <span class="bp-meta__reading-time">{{ reading_time }} min read</span>
+        {%- if page.author -%}
+        <span class="bp-meta__sep">&middot;</span>
+        <span
+          class="bp-meta__author p-author h-card"
+          itemprop="author"
+          itemscope
+          itemtype="http://schema.org/Person"
+        >
+          <span itemprop="name">{{ page.author }}</span>
+        </span>
+        {%- endif -%}
+      </div>
+    </header>
+
+    <div
+      class="bp-content e-content bp-animate"
+      style="animation-delay: 120ms"
+      itemprop="articleBody"
+    >
+      {{ content }}
+    </div>
+
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  </article>
+
+  {%- if page.previous or page.next -%}
+  <nav class="bp-post-nav bp-animate" style="animation-delay: 200ms">
+    {%- if page.previous -%}
+    <a
+      href="{{ page.previous.url | relative_url }}"
+      class="bp-post-nav__item bp-post-nav__prev"
+    >
+      <span class="bp-post-nav__label">Previous</span>
+      <span class="bp-post-nav__title">{{ page.previous.title | escape }}</span>
+    </a>
+    {%- endif -%} {%- if page.next -%}
+    <a
+      href="{{ page.next.url | relative_url }}"
+      class="bp-post-nav__item bp-post-nav__next"
+    >
+      <span class="bp-post-nav__label">Next</span>
+      <span class="bp-post-nav__title">{{ page.next.title | escape }}</span>
+    </a>
+    {%- endif -%}
+  </nav>
+  {%- endif -%}
+
+  <div class="bp-footer-divider bp-animate" style="animation-delay: 280ms">
+    <div class="bp-divider"></div>
+  </div>
+</div>
