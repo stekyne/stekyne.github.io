@@ -26,8 +26,10 @@ Note: Changes to `_config.yml` require restarting the server.
 
 - **`_config.yml`** — Site-wide settings (title, URL, theme, plugins)
 - **`_posts/`** — Blog posts in Markdown, named `YYYY-MM-DD-title.markdown`
-- **`index.markdown`** — Home page (uses `home` layout from minima theme)
-- **`about.markdown`** — About page at `/about/`
+- **`index.html`** — Home/portfolio page (uses `portfolio` layout, includes blog section)
+- **`_layouts/portfolio.html`** — Portfolio layout (extends default)
+- **`assets/css/portfolio.css`** — Portfolio page styles
+- **`assets/js/portfolio.js`** — Portfolio page animations (scroll reveal)
 - **`404.html`** — Custom 404 page
 - **`Gemfile`** — Ruby dependencies (Jekyll 4.x, minima 2.5.x)
 - **`.github/workflows/jekyll.yml`** — GitHub Actions deployment workflow

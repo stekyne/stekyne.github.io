@@ -17,8 +17,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-header_pages:
-  - about.markdown
+header_pages: []
 
 exclude:
   - .sass-cache/

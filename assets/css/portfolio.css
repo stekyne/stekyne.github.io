@@ -1,0 +1,775 @@
+/* ============================================
+   Portfolio Page Styles
+   Scoped entirely under .portfolio-page
+   ============================================ */
+
+/* --- Custom Properties --- */
+.portfolio-page {
+  --p-bg: #0f1117;
+  --p-bg-card: #1a1d27;
+  --p-text: #e8e6e3;
+  --p-text-secondary: #a0a0a0;
+  --p-text-tertiary: #6b6b6b;
+  --p-accent: #d4a85c;
+  --p-accent-hover: #e8be72;
+  --p-accent-light: rgba(212, 168, 92, 0.1);
+  --p-sage: #8fa882;
+  --p-sage-light: rgba(143, 168, 130, 0.1);
+  --p-border: #252830;
+  --p-border-light: #1e2028;
+  --p-shadow: rgba(0, 0, 0, 0.3);
+  --p-space-xs: 4px;
+  --p-space-sm: 8px;
+  --p-space-md: 16px;
+  --p-space-lg: 32px;
+  --p-space-xl: 64px;
+  --p-space-2xl: 96px;
+  --p-space-3xl: 128px;
+}
+
+/* --- Base Reset & Background --- */
+.portfolio-page {
+  background-color: var(--p-bg);
+  margin: -30px;
+  padding: 0 30px 60px;
+}
+
+.page-content:has(.portfolio-page) {
+  background-color: #0f1117;
+}
+
+/* Dark header/footer when on portfolio page */
+body:has(.portfolio-page) {
+  background-color: #0f1117;
+}
+
+body:has(.portfolio-page) .site-header {
+  background-color: #0f1117;
+  border-bottom-color: #252830;
+}
+
+body:has(.portfolio-page) .site-header .site-title,
+body:has(.portfolio-page) .site-header .site-title:visited {
+  color: #e8e6e3;
+}
+
+body:has(.portfolio-page) .site-header .site-nav .page-link {
+  color: #a0a0a0;
+}
+
+body:has(.portfolio-page) .site-header .site-nav .page-link:hover {
+  color: #e8e6e3;
+}
+
+body:has(.portfolio-page) .site-header .site-nav .nav-trigger ~ .trigger {
+  background-color: #1a1d27;
+  border-color: #252830;
+}
+
+body:has(.portfolio-page) .site-header .site-nav .menu-icon > svg {
+  fill: #a0a0a0;
+}
+
+body:has(.portfolio-page) .site-footer {
+  background-color: #0f1117;
+  border-top-color: #252830;
+  color: #6b6b6b;
+}
+
+body:has(.portfolio-page) .site-footer a {
+  color: #a0a0a0;
+}
+
+body:has(.portfolio-page) .site-footer a:hover {
+  color: #d4a85c;
+}
+
+body:has(.portfolio-page) .site-footer .footer-heading {
+  color: #e8e6e3;
+}
+
+body:has(.portfolio-page) .site-footer .contact-list,
+body:has(.portfolio-page) .site-footer .social-media-list {
+  color: #6b6b6b;
+}
+
+body:has(.portfolio-page) .site-footer .social-media-list .svg-icon {
+  fill: #6b6b6b;
+}
+
+body:has(.portfolio-page) .site-footer .social-media-list a:hover .svg-icon {
+  fill: #d4a85c;
+}
+
+.portfolio-page *,
+.portfolio-page *::before,
+.portfolio-page *::after {
+  box-sizing: border-box;
+}
+
+.portfolio-page .pf-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Hero Section --- */
+.portfolio-page .pf-hero {
+  padding: var(--p-space-3xl) 0 var(--p-space-2xl);
+  border-bottom: 1px solid var(--p-border-light);
+}
+
+.portfolio-page .pf-hero__greeting {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--p-accent);
+  margin: 0 0 12px;
+}
+
+.portfolio-page .pf-hero__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--p-text);
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.portfolio-page .pf-hero__subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--p-text-secondary);
+  margin: 0 0 24px;
+}
+
+.portfolio-page .pf-hero__description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--p-text-secondary);
+  max-width: 540px;
+  margin: 0 0 32px;
+}
+
+.portfolio-page .pf-hero__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* --- Links --- */
+.portfolio-page .pf-link {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--p-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.portfolio-page .pf-link:hover {
+  color: var(--p-text);
+  border-bottom-color: var(--p-text);
+}
+
+.portfolio-page .pf-link--primary {
+  color: var(--p-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portfolio-page .pf-link--primary:hover {
+  color: var(--p-accent-hover);
+  border-bottom-color: var(--p-accent-hover);
+}
+
+.portfolio-page .pf-link--primary svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 250ms ease;
+}
+
+.portfolio-page .pf-link--primary:hover svg {
+  transform: translateX(3px);
+}
+
+/* --- Section Layout --- */
+.portfolio-page .pf-section {
+  padding: var(--p-space-2xl) 0;
+  border-bottom: 1px solid var(--p-border-light);
+}
+
+.portfolio-page .pf-section:last-child {
+  border-bottom: none;
+}
+
+.portfolio-page .pf-section__header {
+  margin-bottom: 48px;
+}
+
+.portfolio-page .pf-section__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--p-text);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.portfolio-page .pf-section__subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--p-text-tertiary);
+  margin: 0;
+}
+
+/* --- Project Cards Grid --- */
+.portfolio-page .pf-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.portfolio-page .pf-project-card {
+  background: var(--p-bg-card);
+  border: 1px solid var(--p-border-light);
+  border-radius: 8px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.portfolio-page .pf-project-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--p-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.portfolio-page .pf-project-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 24px var(--p-shadow),
+    0 2px 8px var(--p-shadow);
+}
+
+.portfolio-page .pf-project-card:hover::after {
+  transform: scaleX(1);
+}
+
+.portfolio-page .pf-project-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.portfolio-page .pf-project-card__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--p-text);
+  margin: 0;
+}
+
+.portfolio-page .pf-project-card__year {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8125rem;
+  color: var(--p-text-tertiary);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.portfolio-page .pf-project-card__description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--p-text-secondary);
+  margin: 0 0 16px;
+}
+
+.portfolio-page .pf-project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.portfolio-page .pf-project-card__links {
+  margin-top: auto;
+}
+
+/* --- Tags --- */
+.portfolio-page .pf-tag {
+  display: inline-block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--p-accent-light);
+  color: var(--p-accent);
+  transition: background 200ms ease;
+}
+
+.portfolio-page .pf-tag:hover {
+  background: rgba(212, 168, 92, 0.18);
+}
+
+.portfolio-page .pf-tag--sage {
+  background: var(--p-sage-light);
+  color: var(--p-sage);
+}
+
+.portfolio-page .pf-tag--sage:hover {
+  background: rgba(143, 168, 130, 0.18);
+}
+
+/* --- Project Links --- */
+.portfolio-page .pf-project-link {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--p-accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition:
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.portfolio-page .pf-project-link:hover {
+  color: var(--p-accent-hover);
+  border-bottom-color: var(--p-accent-hover);
+}
+
+.portfolio-page .pf-project-link svg {
+  width: 13px;
+  height: 13px;
+  transition: transform 250ms ease;
+}
+
+.portfolio-page .pf-project-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* --- Experience Timeline --- */
+.portfolio-page .pf-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.portfolio-page .pf-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--p-border);
+}
+
+.portfolio-page .pf-timeline__item {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.portfolio-page .pf-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.portfolio-page .pf-timeline__marker {
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid var(--p-accent);
+  background: var(--p-bg);
+}
+
+.portfolio-page .pf-timeline__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.portfolio-page .pf-timeline__role {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--p-text);
+  margin: 0;
+}
+
+.portfolio-page .pf-timeline__period {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8125rem;
+  color: var(--p-text-tertiary);
+  white-space: nowrap;
+}
+
+.portfolio-page .pf-timeline__company {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--p-accent);
+  margin: 0 0 8px;
+}
+
+.portfolio-page .pf-timeline__description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--p-text-secondary);
+  margin: 0;
+}
+
+/* --- Skills Grid --- */
+.portfolio-page .pf-skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.portfolio-page .pf-skills__category-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--p-text-tertiary);
+  margin: 0 0 16px;
+}
+
+.portfolio-page .pf-skills__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.portfolio-page .pf-skill-tag {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--p-text);
+  padding: 6px 14px;
+  border: 1px solid var(--p-border);
+  border-radius: 4px;
+  background: var(--p-bg-card);
+  transition:
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.portfolio-page .pf-skill-tag:hover {
+  border-color: var(--p-accent);
+  background: var(--p-accent-light);
+}
+
+/* --- Blog Cards --- */
+.portfolio-page .pf-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.portfolio-page .pf-blog-card {
+  border-bottom: 1px solid var(--p-border-light);
+}
+
+.portfolio-page .pf-blog-card:last-child {
+  border-bottom: none;
+}
+
+.portfolio-page .pf-blog-card__link {
+  display: block;
+  padding: 24px 0;
+  text-decoration: none;
+  transition: padding-left 250ms ease;
+}
+
+.portfolio-page .pf-blog-card__link:hover {
+  padding-left: 8px;
+}
+
+.portfolio-page .pf-blog-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.portfolio-page .pf-blog-card__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--p-text);
+  margin: 0;
+  transition: color 250ms ease;
+}
+
+.portfolio-page .pf-blog-card__link:hover .pf-blog-card__title {
+  color: var(--p-accent);
+}
+
+.portfolio-page .pf-blog-card__date {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8125rem;
+  color: var(--p-text-tertiary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.portfolio-page .pf-blog-card__excerpt {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--p-text-secondary);
+  margin: 0;
+}
+
+.portfolio-page .pf-blog__empty {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--p-text-tertiary);
+  text-align: center;
+  padding: 48px 0;
+}
+
+/* --- CTA Section --- */
+.portfolio-page .pf-section--cta {
+  text-align: center;
+  border-bottom: none;
+}
+
+.portfolio-page .pf-cta__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--p-text);
+  margin: 0 0 12px;
+}
+
+.portfolio-page .pf-cta__description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--p-text-secondary);
+  max-width: 420px;
+  margin: 0 auto 28px;
+}
+
+.portfolio-page .pf-cta__links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* --- Decorative Divider --- */
+.portfolio-page .pf-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--p-accent);
+  margin: 0 auto 24px;
+  opacity: 0.5;
+}
+
+/* ============================================
+   Animations & Keyframes
+   ============================================ */
+
+/* Hero load animation */
+@keyframes pf-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-page .pf-hero-anim {
+  opacity: 0;
+  animation: pf-fadeInUp 800ms cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+/* Scroll reveal */
+.portfolio-page .pf-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.portfolio-page .pf-reveal.pf-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page .pf-hero-anim {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  .portfolio-page .pf-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .portfolio-page .pf-project-card {
+    transition: none;
+  }
+
+  .portfolio-page .pf-project-card::after {
+    transition: none;
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 860px) {
+  .portfolio-page .pf-hero {
+    padding: 80px 0 64px;
+  }
+
+  .portfolio-page .pf-hero__title {
+    font-size: 2.6rem;
+  }
+
+  .portfolio-page .pf-section {
+    padding: 64px 0;
+  }
+
+  .portfolio-page .pf-section__header {
+    margin-bottom: 36px;
+  }
+
+  .portfolio-page .pf-projects {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .portfolio-page .pf-skills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .portfolio-page {
+    margin: -15px;
+    padding: 0 15px 40px;
+  }
+
+  .portfolio-page .pf-container {
+    padding: 0 8px;
+  }
+
+  .portfolio-page .pf-hero {
+    padding: 56px 0 48px;
+  }
+
+  .portfolio-page .pf-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .portfolio-page .pf-hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .portfolio-page .pf-hero__description {
+    font-size: 0.95rem;
+  }
+
+  .portfolio-page .pf-section {
+    padding: 48px 0;
+  }
+
+  .portfolio-page .pf-section__title {
+    font-size: 1.6rem;
+  }
+
+  .portfolio-page .pf-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page .pf-project-card {
+    padding: 24px;
+  }
+
+  .portfolio-page .pf-skills {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Simplified timeline on mobile */
+  .portfolio-page .pf-timeline {
+    padding-left: 0;
+  }
+
+  .portfolio-page .pf-timeline::before {
+    display: none;
+  }
+
+  .portfolio-page .pf-timeline__marker {
+    display: none;
+  }
+
+  .portfolio-page .pf-timeline__item {
+    padding-bottom: 32px;
+    padding-left: 0;
+    border-left: 2px solid var(--p-border-light);
+    padding-left: 20px;
+  }
+
+  .portfolio-page .pf-hero__links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .portfolio-page .pf-cta__title {
+    font-size: 1.4rem;
+  }
+}
