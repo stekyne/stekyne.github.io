@@ -8,20 +8,20 @@ load_portfolio_fonts: true
   <!-- ==================== HERO ==================== -->
   <section class="pf-hero">
     <p class="pf-hero__greeting pf-hero-anim" style="animation-delay: 0ms">
-      Hello, I'm
+      // hello, i'm
     </p>
-    <h1 class="pf-hero__title pf-hero-anim" style="animation-delay: 120ms">
+    <h1 class="pf-hero__title pf-hero-anim" style="animation-delay: 100ms">
       Stephen Kyne
     </h1>
-    <p class="pf-hero__subtitle pf-hero-anim" style="animation-delay: 240ms">
+    <p class="pf-hero__subtitle pf-hero-anim" style="animation-delay: 200ms">
       Software Developer
     </p>
-    <p class="pf-hero__description pf-hero-anim" style="animation-delay: 400ms">
+    <p class="pf-hero__description pf-hero-anim" style="animation-delay: 340ms">
       I build software that solves real problems. Passionate about clean
       architecture, performance, and the craft of writing reliable, maintainable
       code.
     </p>
-    <div class="pf-hero__links pf-hero-anim" style="animation-delay: 520ms">
+    <div class="pf-hero__links pf-hero-anim" style="animation-delay: 460ms">
       <a href="https://github.com/stekyne" class="pf-link pf-link--primary">
         GitHub
         <svg
@@ -44,7 +44,9 @@ load_portfolio_fonts: true
   <section class="pf-section">
     <div class="pf-section__header pf-reveal">
       <h2 class="pf-section__title">Selected Projects</h2>
-      <p class="pf-section__subtitle">Things I've built and contributed to</p>
+      <p class="pf-section__subtitle">
+        // things i've built and contributed to
+      </p>
     </div>
 
     <div class="pf-projects">
@@ -60,7 +62,7 @@ load_portfolio_fonts: true
         <div class="pf-project-card__tags">
           <span class="pf-tag">C#</span>
           <span class="pf-tag">.NET</span>
-          <span class="pf-tag pf-tag--sage">Open Source</span>
+          <span class="pf-tag">Open Source</span>
         </div>
         <div class="pf-project-card__links">
           <a href="https://github.com/stekyne" class="pf-project-link">
@@ -80,7 +82,7 @@ load_portfolio_fonts: true
         </div>
       </article>
 
-      <article class="pf-project-card pf-reveal" data-reveal-delay="100">
+      <article class="pf-project-card pf-reveal" data-reveal-delay="80">
         <div class="pf-project-card__header">
           <h3 class="pf-project-card__title">Another Project</h3>
           <span class="pf-project-card__year">2023</span>
@@ -111,7 +113,7 @@ load_portfolio_fonts: true
         </div>
       </article>
 
-      <article class="pf-project-card pf-reveal" data-reveal-delay="200">
+      <article class="pf-project-card pf-reveal" data-reveal-delay="160">
         <div class="pf-project-card__header">
           <h3 class="pf-project-card__title">Third Project</h3>
           <span class="pf-project-card__year">2022</span>
@@ -122,7 +124,7 @@ load_portfolio_fonts: true
         </p>
         <div class="pf-project-card__tags">
           <span class="pf-tag">Python</span>
-          <span class="pf-tag pf-tag--sage">CLI Tool</span>
+          <span class="pf-tag">CLI Tool</span>
         </div>
         <div class="pf-project-card__links">
           <a href="https://github.com/stekyne" class="pf-project-link">
@@ -142,7 +144,7 @@ load_portfolio_fonts: true
         </div>
       </article>
 
-      <article class="pf-project-card pf-reveal" data-reveal-delay="300">
+      <article class="pf-project-card pf-reveal" data-reveal-delay="240">
         <div class="pf-project-card__header">
           <h3 class="pf-project-card__title">Fourth Project</h3>
           <span class="pf-project-card__year">2021</span>
@@ -179,7 +181,7 @@ load_portfolio_fonts: true
   <section class="pf-section">
     <div class="pf-section__header pf-reveal">
       <h2 class="pf-section__title">Experience</h2>
-      <p class="pf-section__subtitle">Professional highlights</p>
+      <p class="pf-section__subtitle">// professional highlights</p>
     </div>
 
     <div class="pf-timeline">
@@ -233,7 +235,7 @@ load_portfolio_fonts: true
   <!-- ==================== SKILLS ==================== -->
   <section class="pf-section">
     <div class="pf-section__header pf-reveal">
-      <h2 class="pf-section__title">Skills &amp; Technologies</h2>
+      <h2 class="pf-section__title">Skills & Technologies</h2>
     </div>
 
     <div class="pf-skills pf-reveal">
@@ -275,28 +277,34 @@ load_portfolio_fonts: true
   <section id="blog" class="pf-section">
     <div class="pf-section__header pf-reveal">
       <h2 class="pf-section__title">Blog</h2>
-      <p class="pf-section__subtitle">Thoughts on software and technology</p>
+      <p class="pf-section__subtitle">// thoughts on software and technology</p>
     </div>
 
     <div class="pf-blog">
       {% for post in site.posts %}
-      <article class="pf-blog-card pf-reveal" data-reveal-delay="{{ forloop.index0 | times: 80 }}">
+      <article
+        class="pf-blog-card pf-reveal"
+        data-reveal-delay="{{ forloop.index0 | times: 80 }}"
+      >
         <a href="{{ post.url | relative_url }}" class="pf-blog-card__link">
           <div class="pf-blog-card__header">
             <h3 class="pf-blog-card__title">{{ post.title | escape }}</h3>
-            <time class="pf-blog-card__date" datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: "%b %-d, %Y" }}
+            <time
+              class="pf-blog-card__date"
+              datetime="{{ post.date | date_to_xmlschema }}"
+            >
+              {{ post.date | date: "%Y.%m.%d" }}
             </time>
           </div>
           {% if post.excerpt %}
-          <p class="pf-blog-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          <p class="pf-blog-card__excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 30 }}
+          </p>
           {% endif %}
         </a>
       </article>
-      {% endfor %}
-
-      {% if site.posts.size == 0 %}
-      <p class="pf-blog__empty">No posts yet. Check back soon.</p>
+      {% endfor %} {% if site.posts.size == 0 %}
+      <p class="pf-blog__empty">// no posts yet</p>
       {% endif %}
     </div>
   </section>
@@ -329,4 +337,5 @@ load_portfolio_fonts: true
   </section>
 </div>
 
+<script src="{{ '/assets/js/shader-bg.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/portfolio.js' | relative_url }}" defer></script>
